@@ -1,7 +1,7 @@
 # Notas
 
 ## Tempo gasto
-45 min Planejamento de testes 
+1H Planejamento de testes 
 ## Como rodar a automação
 
 ```bash
