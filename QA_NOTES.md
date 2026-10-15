@@ -16,7 +16,7 @@ Anotações:
 BUSCA COM TODOS OS DADOS - IDA, VOLTA E DESTINOS 
 BUSCA SEM TODOS OS CAMPOS PREENCHIDOS 
 BUSCA COM DATA DE IDA NO PASSADO 
- BUSCA COM DATA DE VOLTA ANTES DA IDA 
+BUSCA COM DATA DE VOLTA ANTES DA IDA 
 
 RESULTADO DE PESQUISA: 
 COM A BUSCA CONCLUIDA, ORDENAR POR ORDEM DE MILHAS. DO MENOR PARA O MAIOR.
@@ -30,13 +30,17 @@ A taxa de serviço é 7% da taxa de embarque, arredondada para cima ao centavo -
 TENTAR FECHAR UM COTAÇÃO ANTES de 10 minutos.
 TENTAR FECHAR UM COTAÇÃO PROXIMO de 10 minutos.
 TENTAR FECHAR UM COTAÇÃO DEPOIS  de 10 minutos.  Depois disso a reserva é recusada e é preciso buscar de novo.
+Cotação inexistente na consulta de oferta.
+
 
 RESERVA 
 
 RESERVA SEM PREENCHER NOME 
+RESERVAR COM CPF VALIDO
 RESERVA PREENCHENDO OS DADOS 
 Documento (CPF ou passaporte) e e-mail são indiretamente. 
 PEDIDO  INVALIDO TER O ERRO 400 E NUNCA 500 
+RENVIO DA MESMA CHAVE DE IDEMPOTENCIA COM DADOS DIFERETES 
 FAZER VARIOS PEDIDOS INVALIDOS PARA VER SE APARECE O ERRO 500 
 Clique duplo, reprodução de rede ou reenvio do mesmo pedido não podem criar reservas a mais.
 O pedido traz uma idempotencyKey: a mesma chave devolve a mesma reserva ( 201e cabeçalho Idempotent-Replay: true)
