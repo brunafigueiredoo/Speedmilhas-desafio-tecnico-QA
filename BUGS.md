@@ -2,25 +2,91 @@
 
 <!-- Copie o bloco abaixo para cada bug. Gravidade: crítica, alta, média ou baixa. -->
 
-## BUG-01 — título curto do problema
+**BUG-01** — Busca aceita aeroporto não suportado e retorna erro 503
 
-- **Onde:** tela, API ou os dois
-- **Gravidade:**
-- **Regra da SPEC:** (número da regra, se houver)
+Cenário: Rejeita aeroporto não suportado
 
-**Passos para reproduzir**
+Descrição: Ao realizar uma busca de passagens utilizando um código de aeroporto não suportado (XXX), a API retorna HTTP 503 em vez de rejeitar a requisição por meio de um erro de validação.
 
-1.
-2.
+Passos para reprodução:
 
-**Resultado esperado**
+Enviar uma requisição POST /search.
 
-**Resultado obtido**
+Informar XXX como origem ou destino, mantendo os demais campos válidos.
 
-**Evidência**
-bug 1: colocar primeiro uma data de volta depois uma data de ida 
+Verificar o status da resposta.
+
+Resultado esperado: A API deve rejeitar a requisição com HTTP 400 ou 422, informando que o aeroporto não é suportado, conforme as regras da especificação.
+
+Resultado obtido: A API retorna HTTP 503.
+
+Evidência: Teste automatizado CT04 reprovado na execução Cypress. Resultado obtido: 503; resultado esperado: 400 ou 422.
+
+Criticidade Média
+Evidencia: <img width="1280" height="720" alt="Speedmilhas â€” 51 cenÃ¡rios de QA -- CT04 â€” Rejeita aeroporto nÃ£o suportado (failed)" src="https://github.com/user-attachments/assets/892ef3b5-de82-49dd-b0fb-5d29213c509e" />
 
 
+**BUG-02** — Busca aceita data de volta anterior à data de ida
+
+Cenário:Rejeita volta anterior à ida
+
+Descrição: Ao realizar uma busca de passagens de ida e volta com a data de retorno anterior à data de partida, a API aceita a requisição e retorna HTTP 200, sem rejeitar a inconsistência entre as datas.
+
+Passos para reprodução:
+
+Enviar uma requisição POST /search com origem e destino válidos.
+
+Informar uma data de ida posterior à data de volta.
+
+Verificar o status da resposta.
+
+Resultado esperado: A API deve rejeitar a requisição com HTTP 400 ou 422, informando que a data de volta não pode ser anterior à data de ida, conforme as regras da especificação.
+
+Resultado obtido: A API retorna HTTP 200 e aceita a busca.
+
+Criticidade Alta
+Evidência: 
 <img width="1476" height="877" alt="image" src="https://github.com/user-attachments/assets/be868408-dde5-4635-8f11-13206f510b1d" />
 
-<!-- comando, resposta, print ou trecho de log -->
+**BUG-03** — Ausência da diferença de milhas na identificação do parceiro
+
+Descrição: Na listagem de ofertas de passagens, a primeira opção da GOL, proveniente do parceiro B, exibe apenas o texto “via parceiro B”, sem apresentar a diferença de milhas em relação à melhor oferta. Em outras opções da mesma listagem, essa informação é exibida normalmente.
+
+Passos para reprodução:
+
+Realizar uma busca de passagens de ida e volta.
+
+Acessar a seção de resultados referente à volta.
+
+Localizar a primeira oferta da GOL, identificada como proveniente do parceiro B.
+
+Comparar a identificação do parceiro com as ofertas seguintes.
+
+Resultado esperado: A identificação do parceiro deve apresentar a diferença de milhas em relação à melhor oferta, seguindo o mesmo padrão visual e informativo utilizado nas demais opções, quando aplicável.
+
+Resultado obtido: A primeira oferta da GOL exibe somente “via parceiro B”, sem apresentar a diferença de milhas.
+
+Evidência: Captura de tela dos resultados da busca, mostrando a primeira oferta da GOL sem a informação complementar e as ofertas seguintes com essa informação.
+
+Criticidade Média
+
+Evidência: <img width="1658" height="893" alt="2026-10-16T12_00_24" src="https://github.com/user-attachments/assets/3dfe14dd-b722-4a45-8e70-650a57ce1a3c" />
+
+ **BUG-04** — Oferta de passagem exibe apenas milhas, sem informar o preço em reais
+
+Descrição: Na listagem de ofertas de passagens, os preços são apresentados somente em milhas, sem exibir o valor correspondente em reais.
+
+Passos para reprodução:
+
+1. Realizar uma busca de passagens.
+2. Acessar a seção de resultados da busca.
+3. Verificar os valores apresentados nas ofertas disponíveis.
+
+Resultado esperado: As ofertas devem apresentar o preço em reais, além da quantidade de milhas, caso essa informação seja prevista na SPEC.
+
+Resultado obtido: As ofertas exibem apenas a quantidade de milhas, sem informar o preço em reais.
+
+Criticidade: Alta 
+
+Evidência: <img width="1658" height="893" alt="2026-10-16T12_00_24" src="https://github.com/user-attachments/assets/e2d654ca-7a9d-4738-ae4a-7f026350400f" />
+
