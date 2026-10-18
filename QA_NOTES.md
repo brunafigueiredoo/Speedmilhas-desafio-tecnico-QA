@@ -18,7 +18,7 @@
 Abra o terminal e acesse a pasta do projeto de automação:
 
 ```bash
-cd "C:\Testes E2E"
+cd Speedmilhas-desafio-tecnico-QA
 ```
 
 Instale as dependências, caso ainda não estejam instaladas:
