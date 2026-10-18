@@ -72,19 +72,22 @@ Criticidade Média
 
 Evidência: <img width="1658" height="893" alt="2026-10-16T12_00_24" src="https://github.com/user-attachments/assets/3dfe14dd-b722-4a45-8e70-650a57ce1a3c" />
 
- **BUG-04** — Oferta de passagem exibe apenas milhas, sem informar o preço em reais
+ **BUG-04** — Oferta de passagem não apresenta o preço em reais
 
-Descrição: Na listagem de ofertas de passagens, os preços são apresentados somente em milhas, sem exibir o valor correspondente em reais.
+Descrição: Uma oferta de passagem é exibida com o valor em milhas, sem apresentar o preço correspondente em reais, deixando incompleta a informação sobre o custo da passagem.
 
 Passos para reprodução:
+1. Realizar uma busca de passagens de ida e volta.
+2. Acessar a listagem de resultados.
+3. Verificar os valores apresentados nas ofertas de passagens.
+4. Identificar uma oferta que exibe apenas o valor em milhas, sem o preço em reais.
 
-1. Realizar uma busca de passagens.
-2. Acessar a seção de resultados da busca.
-3. Verificar os valores apresentados nas ofertas disponíveis.
+Resultado esperado: Cada oferta deve apresentar o valor em milhas e o valor em reais, composto pela taxa de embarque e pela taxa de serviço, conforme especificado na SPEC.
 
-Resultado esperado: As ofertas devem apresentar o preço em reais, além da quantidade de milhas, caso essa informação seja prevista na SPEC.
+Resultado obtido: A oferta identificada apresenta somente o valor em milhas, sem informar o preço em reais.
 
-Resultado obtido: As ofertas exibem apenas a quantidade de milhas, sem informar o preço em reais.
+Evidência: Captura de tela da oferta que apresenta o valor em milhas sem o correspondente preço em reais.
+
 
 Criticidade: Alta 
 
