@@ -1,16 +1,70 @@
 # Notas
 
 ## Tempo gasto
-1H Planejamento de testes 
+1h Planejamento de testes 
+1h e 20min - Automação de Testes 
+1h e 40min Testes Gerais e Bugs 
+
 ## Como rodar a automação
 
+### Pré-requisitos
+- Node.js instalado.
+- Docker Desktop instalado e em execução.
+- Aplicação Speedmilhas iniciada e acessível localmente.
+- Dependências do projeto instaladas.
+
+### 1. Preparar o ambiente
+
+Abra o terminal e acesse a pasta do projeto de automação:
+
 ```bash
+cd "C:\Testes E2E"
 ```
 
+Instale as dependências, caso ainda não estejam instaladas:
+
+```bash
+npm install
+```
+
+Certifique-se de que a aplicação esteja em execução antes de iniciar os testes.
+
+### 2. Executar a automação no navegador
+
+Para abrir a interface gráfica do Cypress, execute:
+
+```bash
+npx cypress open
+```
+
+Na interface do Cypress:
+
+1. Selecione **E2E Testing**.
+2. Escolha o navegador desejado, como Chrome ou Electron.
+3. Clique em **Start E2E Testing**.
+4. Na lista de arquivos de teste, selecione o arquivo que deseja executar, como `e2e.cy.js`.
+5. Acompanhe a execução dos cenários diretamente no navegador, visualizando as interações realizadas e os resultados de cada teste.
+
+Ao final, o Cypress exibirá os cenários aprovados e reprovados, permitindo analisar eventuais falhas.
+
+### 3. Executar a automação pelo terminal
+
+Para executar os testes em modo headless, sem abrir a interface gráfica do navegador, utilize:
+
+```bash
+npm run test:qa
+```
+
+O resultado da execução será apresentado no terminal, com o resumo dos testes executados e seus respectivos status.
+
 ## O que eu faria com mais tempo
+Executaria testes exploratórios adicionais na interface, investigando inconsistências na apresentação das ofertas e nas informações exibidas ao usuário.
+Ampliaria a cobertura automatizada, incluindo mais cenários negativos, validações de campos obrigatórios, combinações de datas e regras de negócio.
+Complementaria a documentação de QA, detalhando os cenários de testes manuais, as evidências dos defeitos encontrados e os resultados da execução.
 
 ## Como usei IA
-Usei IA  no planejamento de testes, na minha analise, eu faria esses titulos para cenário de testes, e a IA criou o BDD de acordo com cada titulo que eu queria. para a agilidade e padrão de escrita. 
+Usei IA  no planejamento de testes. Na minha analise, eu faria esses titulos para cenário de testes, e a IA criou o BDD de acordo com cada titulo que eu queria. para a agilidade e padrão de escrita. 
+Repeti o processo na escrita de bugs. 
 Anotações: 
 ""DADOS DE PESQUISA: 
 BUSCA COM TODOS OS DADOS - IDA, VOLTA E DESTINOS 
