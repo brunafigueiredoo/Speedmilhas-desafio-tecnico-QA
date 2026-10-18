@@ -316,11 +316,11 @@ Dado que o consumidor envia uma solicitação para POST /orders
 Quando informa quoteId, passageiro e idempotencyKey no formato esperado  
 Então a API deve validar os campos e processar a reserva conforme o contrato.
 
-**CT50 — Não depender indevidamente do cabeçalho x-client-id**
+**CT50 — Validar a identificação da agência pelo cabeçalho x-client-id**
 
-Dado que a agência não deve ser definida pelo cabeçalho x-client-id  
-Quando uma solicitação é enviada com esse cabeçalho ou sem ele  
-Então o sistema deve aplicar as regras de agência previstas no contrato, sem permitir acesso indevido.
+Dado que a agência é identificada pelo cabeçalho `x-client-id`  
+Quando uma solicitação é enviada com um identificador de agência válido ou sem esse cabeçalho  
+Então o sistema deve identificar a agência correspondente quando o cabeçalho for válido e rejeitar a solicitação quando o cabeçalho for obrigatório e estiver ausente, conforme as regras do contrato.
 
 **CT51 — Manter consistência entre busca e streaming**
 
