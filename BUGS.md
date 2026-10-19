@@ -20,9 +20,8 @@ Resultado esperado: A API deve rejeitar a requisição com HTTP 400 ou 422, info
 
 Resultado obtido: A API retorna HTTP 503.
 
-Evidência: Teste automatizado CT04 reprovado na execução Cypress. Resultado obtido: 503; resultado esperado: 400 ou 422.
-
 Criticidade Média
+
 Evidencia: <img width="1280" height="720" alt="Speedmilhas â€” 51 cenÃ¡rios de QA -- CT04 â€” Rejeita aeroporto nÃ£o suportado (failed)" src="https://github.com/user-attachments/assets/892ef3b5-de82-49dd-b0fb-5d29213c509e" />
 
 
@@ -44,7 +43,7 @@ Resultado esperado: A API deve rejeitar a requisição com HTTP 400 ou 422, info
 
 Resultado obtido: A API retorna HTTP 200 e aceita a busca.
 
-Criticidade Alta
+Criticidade:  Alta
 Evidência: 
 <img width="1476" height="877" alt="image" src="https://github.com/user-attachments/assets/be868408-dde5-4635-8f11-13206f510b1d" />
 
