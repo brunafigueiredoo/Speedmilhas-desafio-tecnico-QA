@@ -1,35 +1,48 @@
-# Notas
+# QA Notes — Desafio Speedmilhas
 
 ## Tempo gasto
-1h Planejamento de testes 
-1h e 20min - Automação de Testes 
-1h e 40min Testes Gerais e Bugs 
 
-## Como rodar a automação
+- Planejamento de testes: 1 hora.
+- Automação de testes: 1 hora e 20 minutos.
+- Testes gerais e análise de bugs: 1 hora e 40 minutos.
+
+**Tempo total:** 4 horas.
+
+## Como executar a automação
 
 ### Pré-requisitos
+
 - Node.js instalado.
 - Docker Desktop instalado e em execução.
-- Aplicação Speedmilhas iniciada e acessível localmente.
 - Dependências do projeto instaladas.
 
-### 1. Preparar o ambiente
+### 1. Iniciar a aplicação
 
-Abra o terminal e acesse a pasta do projeto de automação:
+Na raiz do projeto, execute:
 
 ```bash
-cd Speedmilhas-desafio-tecnico-QA
+docker compose up --build
 ```
 
-Instale as dependências, caso ainda não estejam instaladas:
+Aguarde a inicialização dos serviços antes de executar os testes.
+
+### 2. Instalar as dependências
+
+Em outro terminal, na raiz do projeto, execute:
 
 ```bash
 npm install
 ```
 
-Certifique-se de que a aplicação esteja em execução antes de iniciar os testes.
+### 3. Executar os testes automatizados
 
-### 2. Executar a automação no navegador
+Para executar os testes pelo terminal, utilize:
+
+```bash
+npm run test:qa
+```
+
+O comando executa os testes Cypress localizados na pasta `qa`, incluindo os cenários de API e interface.
 
 Para abrir a interface gráfica do Cypress, execute:
 
@@ -37,34 +50,26 @@ Para abrir a interface gráfica do Cypress, execute:
 npx cypress open
 ```
 
-Na interface do Cypress:
-
-1. Selecione **E2E Testing**.
-2. Escolha o navegador desejado, como Chrome ou Electron.
-3. Clique em **Start E2E Testing**.
-4. Na lista de arquivos de teste, selecione o arquivo que deseja executar, como `e2e.cy.js`.
-5. Acompanhe a execução dos cenários diretamente no navegador, visualizando as interações realizadas e os resultados de cada teste.
-
-Ao final, o Cypress exibirá os cenários aprovados e reprovados, permitindo analisar eventuais falhas.
-
-### 3. Executar a automação pelo terminal
-
-Para executar os testes em modo headless, sem abrir a interface gráfica do navegador, utilize:
-
-```bash
-npm run test:qa
-```
-
-O resultado da execução será apresentado no terminal, com o resumo dos testes executados e seus respectivos status.
+Selecione o modo E2E e escolha o arquivo de teste que deseja executar.
 
 ## O que eu faria com mais tempo
-Executaria testes exploratórios adicionais na interface, investigando inconsistências na apresentação das ofertas e nas informações exibidas ao usuário.
-Ampliaria a cobertura automatizada, incluindo mais cenários negativos, validações de campos obrigatórios, combinações de datas e regras de negócio.
-Complementaria a documentação de QA, detalhando os cenários de testes manuais, as evidências dos defeitos encontrados e os resultados da execução.
+
+Concluiria a revisão do código existente, que não foi realizada nesta etapa porque o tempo previsto para o desafio já havia sido ultrapassado durante a execução das atividades de planejamento, automação e testes.
+
+Também ampliaria os testes exploratórios da interface, aprofundaria a cobertura automatizada de cenários negativos e regras de negócio e documentaria os defeitos confirmados com suas respectivas evidências.
 
 ## Como usei IA
-Usei IA  no planejamento de testes. Na minha analise, eu faria esses titulos para cenário de testes, e a IA criou o BDD de acordo com cada titulo que eu queria. para a agilidade e padrão de escrita. 
-Repeti o processo na escrita de bugs. 
+
+Utilizei IA como apoio ao planejamento dos testes, à estruturação dos cenários em BDD/Gherkin e à redação das descrições de possíveis bugs. As sugestões foram avaliadas de acordo com as regras da especificação e com o comportamento observado na aplicação.
+
+Um exemplo de discordância foi a decisão de não ignorar a exceção do React para fazer os testes passarem artificialmente. Como a causa da falha não foi confirmada e o tempo previsto para o desafio já havia sido atingido, optei por preservar o resultado real da execução e registrar a limitação para análise posterior.
+
+---
+
+## Anotações de testes exploratórios
+
+Os cenários listados a seguir representam os pontos considerados durante o planejamento e a exploração da aplicação. A listagem não significa que todos foram executados ou automatizados.
+
 Anotações: 
 
 ""DADOS DE PESQUISA: 
