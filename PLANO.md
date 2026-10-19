@@ -27,7 +27,7 @@ Então o sistema deve consultar as opções para os dois trechos, considerando c
 
 Dado que o usuário informa o mesmo aeroporto como origem e destino  
 Quando solicita a busca  
-Então o sistema deve rejeitar a solicitação.
+Então o sistema deve rejeitar a solicitação e informar que os aeroportos de origem e destino devem ser diferentes.
 
 **CT04 — Impedir busca com aeroporto não suportado**
 
@@ -61,9 +61,10 @@ Então o sistema deve consolidar todas as ofertas válidas recebidas e ordená-l
 
 **CT09 — Interpretar milhas retornadas como texto**
 
-Dado que o fornecedor C retorna a quantidade de milhas como texto, por exemplo "45000"  
-Quando o sistema processa a resposta  
-Então deve interpretar corretamente o valor e incluir a oferta na consolidação.
+Dado que o fornecedor C retorna a quantidade de milhas como texto, por exemplo, `"45000"`  
+Quando o sistema processa a resposta do fornecedor  
+Então deve interpretar corretamente o valor numérico e incluir a oferta na consolidação dos resultados.
+
 
 **CT10 — Apresentar resultados parciais quando um fornecedor falha**
 
@@ -223,7 +224,7 @@ Então o sistema deve preservar a integridade da reserva e não criar uma duplic
 **CT35 — Evitar reservas duplicadas em solicitações simultâneas**
 
 Dado que duas solicitações idênticas são enviadas simultaneamente com a mesma idempotencyKey  
-Quando o sistema processa as requisições  
+Quando o sistema duas requisições simultâneas 
 Então deve existir apenas uma reserva criada.
 
 **CT36 — Permitir reservas distintas para a mesma oferta**
@@ -302,25 +303,25 @@ Então o sistema deve retornar somente as reservas pertencentes a ela.
 
 Dado que a API precisa rejeitar uma solicitação  
 Quando retorna uma resposta de erro  
-Então deve utilizar o formato padronizado previsto na especificação, com código e mensagem adequados.
+Então deve utilizar o formato padronizado definido na especificação, contendo um código de erro e uma mensagem descritiva.
 
 **CT48 — Validar contrato do endpoint de busca**
 
-Dado que o consumidor envia uma solicitação válida para POST /search  
-Quando informa origin, destination e date no corpo da requisição  
-Então a API deve processar os parâmetros conforme o contrato.
+Dado que o consumidor envia uma solicitação válida para `POST /search`  
+Quando informa `origin`, `destination` e `date` no corpo da requisição  
+Então a API deve validar os parâmetros e processar a busca conforme o contrato definido na especificação.
 
 **CT49 — Validar contrato do endpoint de reserva**
 
-Dado que o consumidor envia uma solicitação para POST /orders  
-Quando informa quoteId, passageiro e idempotencyKey no formato esperado  
-Então a API deve validar os campos e processar a reserva conforme o contrato.
+Dado que o consumidor envia uma solicitação para `POST /orders`  
+Quando informa `quoteId`, os dados do passageiro e `idempotencyKey` no formato esperado  
+Então a API deve validar os campos e processar a reserva conforme o contrato definido na especificação.
 
-**CT50 — Validar a identificação da agência pelo cabeçalho x-client-id**
+**CT50 — Validar a identificação da agência pelo cabeçalho `x-client-id`**
 
 Dado que a agência é identificada pelo cabeçalho `x-client-id`  
 Quando uma solicitação é enviada com um identificador de agência válido ou sem esse cabeçalho  
-Então o sistema deve identificar a agência correspondente quando o cabeçalho for válido e rejeitar a solicitação quando o cabeçalho for obrigatório e estiver ausente, conforme as regras do contrato.
+Então o sistema deve identificar a agência correspondente quando o cabeçalho for válido e retornar HTTP 401 quando o cabeçalho obrigatório estiver ausente, conforme as regras da especificação.
 
 **CT51 — Manter consistência entre busca e streaming**
 
