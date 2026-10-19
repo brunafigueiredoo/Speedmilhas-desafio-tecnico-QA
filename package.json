@@ -1,0 +1,25 @@
+{
+  "name": "speedmilhas-desafio-tecnico-qa",
+  "version": "1.0.0",
+  "description": "A Speed Milhas é uma plataforma B2B de emissão de passagens aéreas com milhas. Agências de\r viagem buscam passagens em vários fornecedores ao mesmo tempo e reservam pela nossa\r plataforma. Os fornecedores são lentos, instáveis e cada um responde num formato diferente.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:qa": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunafigueiredoo/Speedmilhas-desafio-tecnico-QA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/brunafigueiredoo/Speedmilhas-desafio-tecnico-QA/issues"
+  },
+  "homepage": "https://github.com/brunafigueiredoo/Speedmilhas-desafio-tecnico-QA#readme",
+  "devDependencies": {
+    "cypress": "^16.2.0"
+  }
+}
